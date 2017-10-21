@@ -26,7 +26,7 @@ h5py
 scipy
 
 
-#Instructions
+# Instructions
 
 Run processor.py with args the path of Video directory and frame rate.
 
