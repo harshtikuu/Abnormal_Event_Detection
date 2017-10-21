@@ -1,13 +1,5 @@
 import os
 
-
-
-
-
-
-
-
-
 os.chdir('./train')
 os.mkdir('./outputs')
 videos=os.listdir()

@@ -9,6 +9,8 @@ from scipy.misc import imresize
 imagestore=[]
 
 
+pwd=os.getcwd()
+
 def store(image):
 
 	global imagestore
@@ -35,7 +37,9 @@ for image in images:
 	store(image)
 
 
+os.chdir(pwd)
+
 imagestore=np.array(imagestore)
 a,b,c=imagestore.shape
 imagestore.resize(b,c,a)
-print(imagestore.shape)
+np.save('imagestore.npy',imagestore)
