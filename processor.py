@@ -20,7 +20,7 @@ Usage:
 
 python3 processor.py video_dir_path time_in_seconds_to_extract_one_frame
 
-eg;python3 processor.py ./train 5 will search for train directory and for each video in train directory
+eg;python3 processor.py ./train 5   will search for train directory and for each video in train directory
 
 It will extract 1 frame every 5 seconds and store it.
 
@@ -102,6 +102,6 @@ imagestore.resize(b,c,a)
 imagestore=(imagestore-imagestore.mean())/(imagestore.std())
 #Clip negative Values
 imagestore=np.clip(imagestore,0,1)
-np.save('imagestore.npy',imagestore)
+np.save('training.npy',imagestore)
 #Remove Buffer Directory
 os.system('rm -r {}'.format(framepath))
