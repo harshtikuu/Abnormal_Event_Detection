@@ -15,7 +15,6 @@ Author: Harsh Tiku
 
 
 from model import load_model
-import processor
 import numpy as np 
 import argparse
 
@@ -33,10 +32,9 @@ frames=X_train.shape[2]
 
 frames=frames-frames%10
 
-X_train=X_train[:,:,frames]
+X_train=X_train[:,:,:frames]
 X_train=X_train.reshape(-1,227,227,10)
-X_train=np.expand_dims(X_train,axis=1)
-
+X_train=np.expand_dims(X_train,axis=4)
 Y_train=X_train.copy()
 
 
