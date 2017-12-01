@@ -37,6 +37,6 @@ Run train.py to train the model
 Run test.py to test on testing data.
 
 
-
+You can adjust the threshold parameter in test.py to different values to adjust sensitivity
 
 Datasets Recommended: Avenue Dataset for Anomaly Detection
