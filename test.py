@@ -65,17 +65,16 @@ flag=0 #Overall video flag
 
 frames=frames-frames%10
 
-X_test=X_test[:,:,frames]
+X_test=X_test[:,:,:frames]
 X_test=X_test.reshape(-1,227,227,10)
-X_test=np.expand_dims(X_test,axis=1)
+X_test=np.expand_dims(X_test,axis=4)
 
-for bunch in X_test[:,227,227,10]:
-	inp=bunch.reshape(1,227,227,10)
-	inp=np.expand_dims(inp,axis=1)
-	reconstructed_bunch=model.predict(bunch)
+for bunch in X_test:
+	n_bunch=np.expand_dims(bunch,axis=0)
+	reconstructed_bunch=model.predict(n_bunch)
 
 
-	loss=mean_squared_loss(bunch,reconstructed_bunch)
+	loss=mean_squared_loss(n_bunch,reconstructed_bunch)
 
 	if loss>threshold:
 		print("Anomalous bunch of frames")
