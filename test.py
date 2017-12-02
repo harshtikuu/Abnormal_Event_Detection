@@ -35,8 +35,8 @@ def mean_squared_loss(x1,x2):
 
 
 	diff=x1-x2
-	a,b,c=diff.shape
-	n_samples=a*b*c
+	a,b,c,d,e=diff.shape
+	n_samples=a*b*c*d*e
 	sq_diff=diff**2
 	Sum=sq_diff.sum()
 	dist=np.sqrt(Sum)
@@ -61,7 +61,7 @@ frames=X_test.shape[2]
 #Need to make number of frames divisible by 10
 
 
-flag=0 #Overall video flag
+flag=0 #Overall video flagq
 
 frames=frames-frames%10
 
