@@ -40,7 +40,7 @@ modelpath=args.modelpath
 vc=cv2.VideoCapture(0)
 rval=True
 print('Loading model')
-model=load_model('modelpath')
+model=load_model(modelpath)
 print('Model loaded')
 
 threshold=0.1
