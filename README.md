@@ -25,6 +25,8 @@ h5py
 
 scipy
 
+OpenCV
+
 
 # Instructions
 
