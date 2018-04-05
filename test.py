@@ -69,7 +69,7 @@ X_test=X_test[:,:,:frames]
 X_test=X_test.reshape(-1,227,227,10)
 X_test=np.expand_dims(X_test,axis=4)
 
-for bunch in X_test:
+for number,bunch in enumerate(X_test):
 	n_bunch=np.expand_dims(bunch,axis=0)
 	reconstructed_bunch=model.predict(n_bunch)
 
@@ -77,7 +77,7 @@ for bunch in X_test:
 	loss=mean_squared_loss(n_bunch,reconstructed_bunch)
 
 	if loss>threshold:
-		print("Anomalous bunch of frames")
+		print("Anomalous bunch of frames at bunch number {}".format(number))
 		flag=1
 
 
