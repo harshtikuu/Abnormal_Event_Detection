@@ -86,7 +86,7 @@ os.mkdir(video_source_path+'/frames')
 
 framepath=video_source_path+'/frames'
 
-for video in videos[1:]:
+for video in videos:
 		os.system( 'ffmpeg -i {}/{} -r 1/{}  {}/frames/%03d.jpg'.format(video_source_path,video,fps,video_source_path))
 		images=os.listdir(framepath)
 		for image in images:
