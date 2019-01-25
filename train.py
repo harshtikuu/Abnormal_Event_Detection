@@ -13,7 +13,7 @@ Author: Harsh Tiku
 
 '''
 
-
+from keras.callbacks import ModelCheckpoint, EarlyStopping
 from model import load_model
 import numpy as np 
 import argparse
@@ -48,13 +48,15 @@ if __name__=="__main__":
 
 	model=load_model()
 
+	callback_save = ModelCheckpoint("AnomalyDetector.h5",
+									monitor="mean_squared_error", save_best_only=True)
+
+	callback_early_stopping = EarlyStopping(monitor='val_loss', patience=3)
 
 	print('Model has been loaded')
 
-	model.fit(X_train,Y_train,batch_size=batch_size,epochs=epochs)
-
-	model.save('AnomalyDetector.h5')
-
-
-
-
+	model.fit(X_train,Y_train,
+			  batch_size=batch_size,
+			  epochs=epochs,
+			  callbacks = [callback_save,callback_early_stopping]
+			  )
