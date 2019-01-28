@@ -41,8 +41,8 @@ Author: Harsh Tiku
 
 
 from keras.preprocessing.image import img_to_array,load_img
-from sklearn.preprocessing import StandardScaler
-import numpy as np 
+import numpy as np
+import glob
 import os 
 from scipy.misc import imresize 
 import argparse
@@ -57,6 +57,15 @@ args=parser.parse_args()
 
 video_source_path= args.source_vid_path
 fps=args.fps
+
+def create_dir(path):
+	if not os.path.exists(path):
+		os.makedirs(path)
+
+def remove_old_images(path):
+	filelist = glob.glob(os.path.join(path, "*.png"))
+	for f in filelist:
+		os.remove(f)
 
 def store(image_path):
 	img=load_img(image_path)
@@ -79,10 +88,14 @@ def store(image_path):
 
 #List of all Videos in the Source Directory.
 videos=os.listdir(video_source_path)
+print("Found ",len(videos)," training video")
 
 
 #Make a temp dir to store all the frames
-os.mkdir(video_source_path+'/frames')
+create_dir(video_source_path+'/frames')
+
+#Remove old images
+remove_old_images(video_source_path+'/frames')
 
 framepath=video_source_path+'/frames'
 
