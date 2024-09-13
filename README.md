@@ -40,6 +40,10 @@ Run test.py to test on testing data.
 
 Run start_live_feed.py to test the model on live webcam feed.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=harshtikuu/Abnormal_Event_Detection&type=Date)](https://star-history.com/#harshtikuu/Abnormal_Event_Detection&Date)
+
 
 You can adjust the threshold parameter in test.py to different values to adjust sensitivity
 
